@@ -31,7 +31,10 @@ namespace AutomatedTestsCore.QMonitor.Pages
             _webDriver.FindElement(emailFinder).SendKeys(email);
             _webDriver.FindElement(userNameFinder).SendKeys(username);
             _webDriver.FindElement(userPasswordFinder).SendKeys(password);
-            _webDriver.FindElement(submitBtnFinder).Click();
+            base.waitForEnabledElement(submitBtnFinder);
+            IWebElement element = _webDriver.FindElement(submitBtnFinder);
+            IJavaScriptExecutor executor = (IJavaScriptExecutor)_webDriver;
+            executor.ExecuteScript("arguments[0].click();", element);
         }
     }
 }

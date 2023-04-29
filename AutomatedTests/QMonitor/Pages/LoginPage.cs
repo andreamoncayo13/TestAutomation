@@ -18,7 +18,7 @@ namespace AutomatedTestsCore.QMonitor.Pages
         public By userNameFinder = By.Id("username");
         public By userPasswordFinder = By.Id("password");
         public By loginButtonFinder = By.CssSelector("button[type='submit']");
-        public By loginErrorMsgFinder = By.Id("loginError");
+        public By loginErrorMsgFinder = By.XPath("//*[contains(text(), 'User Not Found!')]");
         public By registerLinkFinder = By.Id("register-link");
         public By h3Finder = By.CssSelector("h3[class='pt-3 font-weight-bold']");
 
@@ -69,6 +69,7 @@ namespace AutomatedTestsCore.QMonitor.Pages
 
         public string GetLoginError()
         {
+            base.waitForPageToLoad(loginErrorMsgFinder);
             return _webDriver.FindElement(loginErrorMsgFinder).Text;
         }
 

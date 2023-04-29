@@ -32,11 +32,26 @@ namespace AutomatedTests.QMonitor.Steps
             loginPage.LogInWithError();
         }
 
+        [Then(@"The vlog page opens")]
+        public void ThenVlogPageOpens()
+        {
+            VlogPage vlogPage = new VlogPage(_scenarioContext);
+            Assert.AreEqual("Comment", vlogPage.getPageTitle());
+        }
+
         [Then(@"The dashboard page opens")]
         public void ThenTheDashboardPageOpens()
         {
             DashboardPage dashboardPage = new DashboardPage(_scenarioContext);
             Assert.AreEqual("Dashboard", dashboardPage.getPageTitle());
+        }
+
+        [Given(@"I Click on the Login Link")]
+        public void IClickOnTheLoginLink()
+        {
+            DashboardPage dashboardPage = new DashboardPage(_scenarioContext);
+            Assert.AreEqual("Dashboard", dashboardPage.getPageTitle());
+            dashboardPage.ClickLoginPageLink();
         }
 
         [Then(@"I get a login error")]

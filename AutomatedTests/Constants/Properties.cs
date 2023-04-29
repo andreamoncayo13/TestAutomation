@@ -9,7 +9,7 @@ namespace AutomatedTests.Constants
     public static class Properties
     {
         public static string BROWSER_AGENT = "Chrome"; //Chrome or Edge
-        public static string BASE_URL = "http://localhost:4200/";
+        public static string BASE_URL = "http://my-travel-site.eastus.cloudapp.azure.com";
         public static string USERNAME = "jose";
         public static string PASSWORD = "jose";
     }

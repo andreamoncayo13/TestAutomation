@@ -1,5 +1,6 @@
 ﻿using AutomatedTestsCore.Constants;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
@@ -31,5 +32,11 @@ namespace AutomatedTests.QMonitor.Pages
             WebDriverWait wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(30));
             wait.Until(ExpectedConditions.ElementIsVisible(elementFinder));
         }
+        public void waitForEnabledElement(By elementFinder)
+        {
+            WebDriverWait wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(30));
+            wait.Until(ExpectedConditions.ElementToBeClickable(elementFinder));
+        }
+
     }
 }
